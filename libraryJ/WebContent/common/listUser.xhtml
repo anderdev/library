@@ -7,7 +7,7 @@
         
         
         <ui:define name="contentAPP">
-	        <h:form prependId="false">
+	        <h:form prependId="false" target="_blank">
 	        	<h:outputText value="Lista de Usuários" styleClass="boxTitulo"/>
 	        	
 	        	<div align="center" style="width: 100%;" >
@@ -15,7 +15,7 @@
 			       		<p:messages showDetail="true" showSummary="false"  autoUpdate="true" id="mensagem"/>
 			       	</div>
 	        	
-	        		<h:panelGrid columns="2" width="50%" border="0" columnClasses="alignLeft,alignRight">
+	        		<h:panelGrid columns="3" width="50%" border="0" columnClasses="alignLeft,alignRight,alignRight">
 		        		<p:commandButton value="Excluir" styleClass="button" onclick="confirmation.show()" />
 		        		<p:commandButton value="Novo" 
 		        			action="#{userMBean.newAdminUser}"  
@@ -24,6 +24,7 @@
 		        			id="newButton"
 		        			oncomplete="newUserModal.show()" >
 		        		</p:commandButton>
+		        		<p:commandButton value="Print" styleClass="button"  actionListener="#{userMBean.print}" ajax="false" />
 				    </h:panelGrid>
 				   
 				    <p:dataTable var="cat" value="#{userMBean.userList}" style="width:50%" id="userList"

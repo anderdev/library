@@ -1,5 +1,6 @@
 package com.library.mbean;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -9,10 +10,19 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.validator.ValidatorException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
+
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import com.library.entity.User;
 import com.library.entity.xml.MessageReturn;
@@ -32,7 +42,7 @@ public class UserMBean implements Serializable {
 	FacesContext fc = FacesContext.getCurrentInstance();
 
 	HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
-	
+
 	private List<User> userList;
 
 	private User user;
@@ -42,9 +52,9 @@ public class UserMBean implements Serializable {
 	private User[] selectedUsers;
 
 	private Boolean isAdmin = false;
-	
+
 	private Boolean showPassword = true;
-	
+
 	private String logoutURL;
 
 	Client client = null;
@@ -59,7 +69,7 @@ public class UserMBean implements Serializable {
 			String[] str = ((HttpServletRequest) request).getRequestURL().toString().split("library");
 			host = str[0];
 		}
-		logoutURL = host+"/libraryJ";
+		logoutURL = host + "/libraryJ";
 	}
 
 	public String login() {
@@ -91,17 +101,41 @@ public class UserMBean implements Serializable {
 
 		return "/common/index.xhtml?faces-redirect=true";
 	}
+
+	JasperPrint jasperPrint;
+
+	public void init() throws JRException {
+		JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(userList);
+		jasperPrint = JasperFillManager.fillReport(FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream("/relatorios/userList.jasper"), null, beanCollectionDataSource);
+	}
+
+	public void print(ActionEvent actionEvent) {
+		try {
+			init();
+			HttpServletResponse httpServletResponse = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+			httpServletResponse.addHeader("Content-disposition", "inline; filename=report.pdf");
+			ServletOutputStream servletOutputStream = httpServletResponse.getOutputStream();
+			JasperExportManager.exportReportToPdfStream(jasperPrint, servletOutputStream);
+			FacesContext.getCurrentInstance().responseComplete();
+		} catch (JRException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
-	private void loadList(){
+	private void loadList() {
 		WebResource webResource = client.resource(host + "libraryWS/user");
-		
-		userList = webResource.accept(MediaType.APPLICATION_JSON).get(new GenericType<List<User>>(){});
+
+		userList = webResource.accept(MediaType.APPLICATION_JSON).get(new GenericType<List<User>>() {});
 	}
 
 	public String list() {
-		
+
 		loadList();
-		
+
 		return "/common/listUser.xhtml?faces-redirect=true";
 	}
 
@@ -114,7 +148,7 @@ public class UserMBean implements Serializable {
 		this.user = new User();
 		showPassword = true;
 	}
-	
+
 	public void newAdminUser() {
 		this.user = new User();
 		isAdmin = true;
@@ -125,8 +159,8 @@ public class UserMBean implements Serializable {
 		this.user = new User();
 		return "index.xhtml\faces-redirect=true";
 	}
-	
-	public String cancelLogged(){
+
+	public String cancelLogged() {
 		return "/common/listUser.xhtml?faces-redirect=true";
 	}
 
@@ -140,7 +174,7 @@ public class UserMBean implements Serializable {
 		try {
 			WebResource webResource = client.resource(host + "libraryWS/user");
 
-			if(!isAdmin){
+			if (!isAdmin) {
 				user.setAdmin(false);
 			}
 
@@ -158,7 +192,7 @@ public class UserMBean implements Serializable {
 			} else {
 				FacesUtil.showSuccessMessage(ret.getMessage());
 			}
-			if(isAdmin){
+			if (isAdmin) {
 				loadList();
 			}
 		} catch (Exception e) {
