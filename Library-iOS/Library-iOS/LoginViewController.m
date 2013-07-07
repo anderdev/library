@@ -9,14 +9,15 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
-
+{
+    CGPoint scrollViewOffSet;
+}
 @property (weak, nonatomic) IBOutlet UITextField *textUser;
 @property (weak, nonatomic) IBOutlet UITextField *textPassword;
 @property (weak, nonatomic) IBOutlet UIButton *btnDismissKeyboard;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)didClickAtConnect:(id)sender;
-- (IBAction)didEndEditing:(id)sender;
-- (IBAction)didEnterEditing:(id)sender;
 
 @end
 
@@ -34,7 +35,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    [self.textUser setTag:0];
+    [self.textPassword setTag:1];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,18 +49,7 @@
 
 - (IBAction)didClickAtConnect:(id)sender
 {
-    if ([self.textUser.text isEqualToString:@"admin"])
-    {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"admin"];
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"admin"];
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    }
-    
-    [self performSegueWithIdentifier:@"tabBarSegue" sender:self];
+    [self performSegueWithIdentifier:@"listBookSegue" sender:self];
 }
 
 - (IBAction)didEnterEditing:(id)sender
@@ -64,11 +57,22 @@
     [self.btnDismissKeyboard setHidden:NO];
 }
 
-- (IBAction)didEndEditing:(id)sender
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self.btnDismissKeyboard setHidden:YES];
-    [self.textUser resignFirstResponder];
-    [self.textPassword resignFirstResponder];
+    if (textField.tag == 0) {
+        CGPoint textOffset;
+        textOffset.y = self.textPassword.frame.origin.y - 215;
+        textOffset.x = 0;
+        [self.scrollView setContentOffset:textOffset animated:YES];
+        [textField resignFirstResponder];
+        [self.textPassword becomeFirstResponder];
+    }
+    else
+    {
+        [self.textPassword resignFirstResponder];
+    }
+    
+    return YES;
 }
 
 @end

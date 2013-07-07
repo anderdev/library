@@ -7,9 +7,13 @@
 //
 
 #import "AuthorListViewController.h"
+#import <RestKit/RestKit.h>
+#import "Author.h"
 
 @interface AuthorListViewController ()
-
+{
+    NSArray *arrayAuthors;
+}
 @end
 
 @implementation AuthorListViewController
@@ -18,7 +22,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -26,6 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Autores";
+    
+    [self getAuthorList];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,12 +45,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [arrayAuthors count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -51,61 +58,56 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    Author *author = arrayAuthors[indexPath.row];
+    [cell.textLabel setText:author.name];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)getAuthorList
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    RKObjectMapping *bookMapping = [RKObjectMapping requestMapping];
+    [bookMapping addAttributeMappingsFromArray:@[@"name", @"id"]];
+    
+    NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:bookMapping pathPattern:nil keyPath:@"author" statusCodes:statusCodes];
+    
+    // Error mapping
+    RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[RKErrorMessage class]];
+    [errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:nil toKeyPath:@"errorMessage"]];
+    RKResponseDescriptor *errorDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:errorMapping
+                                                                                    pathPattern:nil
+                                                                                        keyPath:@"errors.message"
+                                                                                    statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError)];
+    
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://192.241.132.106:8080/libraryWS/"]];
+    
+    [manager addResponseDescriptorsFromArray:@[responseDescriptor, errorDescriptor]];
+    
+    // POST to create
+    [manager getObjectsAtPath:@"author" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        NSMutableArray *authorList = [[NSMutableArray alloc] init];
+        for (NSDictionary *authorDict in [mappingResult array]) {
+            Author *author = [[Author alloc] init];
+            [author setName:authorDict[@"name"]];
+            [author setAuthorId:authorDict[@"id"]];
+            [authorList addObject:author];
+            author = nil;
+        }
+        
+        arrayAuthors = authorList;
+        [self.tableView reloadData];
+        
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

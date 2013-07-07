@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E255187176A96680061993C /* BookEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E255186176A96680061993C /* BookEditViewController.m */; };
-		4E25518A176A96760061993C /* AuthorEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E255189176A96760061993C /* AuthorEditViewController.m */; };
-		4E25518D176A96840061993C /* UserEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E25518C176A96840061993C /* UserEditViewController.m */; };
+		121DE8D1C4344C6FAC08D289 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB211A543A54ECF874704ED /* libPods.a */; };
 		4E255191176A9A430061993C /* images-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4E25518E176A9A430061993C /* images-2.jpeg */; };
 		4E255192176A9A430061993C /* images-1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4E25518F176A9A430061993C /* images-1.jpeg */; };
 		4E255193176A9A430061993C /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4E255190176A9A430061993C /* images.jpeg */; };
 		4E697C8F177CCDFC00833E2F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E697C8E177CCDFC00833E2F /* LoginViewController.m */; };
+		4E9597981782533D00BEEEA2 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9597971782533D00BEEEA2 /* BookDetailViewController.m */; };
 		4EC11072176A870500FE7679 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC11071176A870500FE7679 /* UIKit.framework */; };
 		4EC11074176A870500FE7679 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC11073176A870500FE7679 /* Foundation.framework */; };
 		4EC11076176A870500FE7679 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC11075176A870500FE7679 /* CoreGraphics.framework */; };
@@ -26,21 +25,20 @@
 		4EC1108B176A870500FE7679 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC11089176A870500FE7679 /* MainStoryboard.storyboard */; };
 		4EC1109C176A8C5C00FE7679 /* BookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1109B176A8C5C00FE7679 /* BookListViewController.m */; };
 		4EC1109F176A8C7200FE7679 /* AuthorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1109E176A8C7200FE7679 /* AuthorListViewController.m */; };
-		4EC110A2176A8C8D00FE7679 /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC110A1176A8C8D00FE7679 /* UserListViewController.m */; };
+		4EEA2B2A178519800053DBE5 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA2B29178519800053DBE5 /* Book.m */; };
+		4EEA2B2D17859D170053DBE5 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA2B2C17859D170053DBE5 /* Author.m */; };
+		4EEA2B3017859F280053DBE5 /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA2B2F17859F280053DBE5 /* UserListViewController.m */; };
+		4EEA2B341785A0690053DBE5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA2B331785A0690053DBE5 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4E255185176A96680061993C /* BookEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookEditViewController.h; path = ViewController/BookEditViewController.h; sourceTree = "<group>"; };
-		4E255186176A96680061993C /* BookEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookEditViewController.m; path = ViewController/BookEditViewController.m; sourceTree = "<group>"; };
-		4E255188176A96760061993C /* AuthorEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorEditViewController.h; sourceTree = "<group>"; };
-		4E255189176A96760061993C /* AuthorEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorEditViewController.m; sourceTree = "<group>"; };
-		4E25518B176A96840061993C /* UserEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserEditViewController.h; sourceTree = "<group>"; };
-		4E25518C176A96840061993C /* UserEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserEditViewController.m; sourceTree = "<group>"; };
 		4E25518E176A9A430061993C /* images-2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-2.jpeg"; sourceTree = "<group>"; };
 		4E25518F176A9A430061993C /* images-1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-1.jpeg"; sourceTree = "<group>"; };
 		4E255190176A9A430061993C /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
 		4E697C8D177CCDFC00833E2F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		4E697C8E177CCDFC00833E2F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4E9597961782533D00BEEEA2 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
+		4E9597971782533D00BEEEA2 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		4EC1106E176A870500FE7679 /* Library-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Library-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC11071176A870500FE7679 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4EC11073176A870500FE7679 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,8 +57,16 @@
 		4EC1109B176A8C5C00FE7679 /* BookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookListViewController.m; path = ViewController/BookListViewController.m; sourceTree = "<group>"; };
 		4EC1109D176A8C7200FE7679 /* AuthorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorListViewController.h; path = ViewController/AuthorListViewController.h; sourceTree = "<group>"; };
 		4EC1109E176A8C7200FE7679 /* AuthorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorListViewController.m; path = ViewController/AuthorListViewController.m; sourceTree = "<group>"; };
-		4EC110A0176A8C8D00FE7679 /* UserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserListViewController.h; path = ViewController/UserListViewController.h; sourceTree = "<group>"; };
-		4EC110A1176A8C8D00FE7679 /* UserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserListViewController.m; path = ViewController/UserListViewController.m; sourceTree = "<group>"; };
+		4EEA2B28178519800053DBE5 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		4EEA2B29178519800053DBE5 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		4EEA2B2B17859D170053DBE5 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
+		4EEA2B2C17859D170053DBE5 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
+		4EEA2B2E17859F280053DBE5 /* UserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
+		4EEA2B2F17859F280053DBE5 /* UserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
+		4EEA2B321785A0690053DBE5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		4EEA2B331785A0690053DBE5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		BEB211A543A54ECF874704ED /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA0C7269FC464D9ABF136057 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,18 +77,40 @@
 				4EC11072176A870500FE7679 /* UIKit.framework in Frameworks */,
 				4EC11074176A870500FE7679 /* Foundation.framework in Frameworks */,
 				4EC11076176A870500FE7679 /* CoreGraphics.framework in Frameworks */,
+				121DE8D1C4344C6FAC08D289 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E95979A1782535E00BEEEA2 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				4EC1109A176A8C5C00FE7679 /* BookListViewController.h */,
+				4EC1109B176A8C5C00FE7679 /* BookListViewController.m */,
+				4E9597961782533D00BEEEA2 /* BookDetailViewController.h */,
+				4E9597971782533D00BEEEA2 /* BookDetailViewController.m */,
+			);
+			name = Book;
+			sourceTree = "<group>";
+		};
+		4E95979B1782536400BEEEA2 /* Author */ = {
+			isa = PBXGroup;
+			children = (
+				4EC1109D176A8C7200FE7679 /* AuthorListViewController.h */,
+				4EC1109E176A8C7200FE7679 /* AuthorListViewController.m */,
+			);
+			name = Author;
+			sourceTree = "<group>";
+		};
 		4EC11065176A870500FE7679 = {
 			isa = PBXGroup;
 			children = (
 				4EC11077176A870500FE7679 /* Library-iOS */,
 				4EC11070176A870500FE7679 /* Frameworks */,
 				4EC1106F176A870500FE7679 /* Products */,
+				CA0C7269FC464D9ABF136057 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +128,7 @@
 				4EC11071176A870500FE7679 /* UIKit.framework */,
 				4EC11073176A870500FE7679 /* Foundation.framework */,
 				4EC11075176A870500FE7679 /* CoreGraphics.framework */,
+				BEB211A543A54ECF874704ED /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,6 +139,7 @@
 				4EC11080176A870500FE7679 /* AppDelegate.h */,
 				4EC11081176A870500FE7679 /* AppDelegate.m */,
 				4EC11089176A870500FE7679 /* MainStoryboard.storyboard */,
+				4EEA2B351785A0780053DBE5 /* Model */,
 				4EC110A3176A8C9100FE7679 /* ViewController */,
 				4EC11078176A870500FE7679 /* Supporting Files */,
 			);
@@ -136,22 +166,35 @@
 		4EC110A3176A8C9100FE7679 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4EC1109A176A8C5C00FE7679 /* BookListViewController.h */,
-				4EC1109B176A8C5C00FE7679 /* BookListViewController.m */,
-				4EC1109D176A8C7200FE7679 /* AuthorListViewController.h */,
-				4EC1109E176A8C7200FE7679 /* AuthorListViewController.m */,
-				4EC110A0176A8C8D00FE7679 /* UserListViewController.h */,
-				4EC110A1176A8C8D00FE7679 /* UserListViewController.m */,
-				4E255185176A96680061993C /* BookEditViewController.h */,
-				4E255186176A96680061993C /* BookEditViewController.m */,
-				4E255188176A96760061993C /* AuthorEditViewController.h */,
-				4E255189176A96760061993C /* AuthorEditViewController.m */,
-				4E25518B176A96840061993C /* UserEditViewController.h */,
-				4E25518C176A96840061993C /* UserEditViewController.m */,
+				4EEA2B3117859F320053DBE5 /* User */,
+				4E95979B1782536400BEEEA2 /* Author */,
+				4E95979A1782535E00BEEEA2 /* Book */,
 				4E697C8D177CCDFC00833E2F /* LoginViewController.h */,
 				4E697C8E177CCDFC00833E2F /* LoginViewController.m */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		4EEA2B3117859F320053DBE5 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				4EEA2B2E17859F280053DBE5 /* UserListViewController.h */,
+				4EEA2B2F17859F280053DBE5 /* UserListViewController.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		4EEA2B351785A0780053DBE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EEA2B28178519800053DBE5 /* Book.h */,
+				4EEA2B29178519800053DBE5 /* Book.m */,
+				4EEA2B2B17859D170053DBE5 /* Author.h */,
+				4EEA2B2C17859D170053DBE5 /* Author.m */,
+				4EEA2B321785A0690053DBE5 /* User.h */,
+				4EEA2B331785A0690053DBE5 /* User.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,9 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EC11091176A870500FE7679 /* Build configuration list for PBXNativeTarget "Library-iOS" */;
 			buildPhases = (
+				8CAD76D6E3EC4000BE2D6BF2 /* Check Pods Manifest.lock */,
 				4EC1106A176A870500FE7679 /* Sources */,
 				4EC1106B176A870500FE7679 /* Frameworks */,
 				4EC1106C176A870500FE7679 /* Resources */,
+				22F5033CD0554F5CBCBB75CF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,6 +263,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22F5033CD0554F5CBCBB75CF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		8CAD76D6E3EC4000BE2D6BF2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4EC1106A176A870500FE7679 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -227,11 +303,12 @@
 				4EC11082176A870500FE7679 /* AppDelegate.m in Sources */,
 				4EC1109C176A8C5C00FE7679 /* BookListViewController.m in Sources */,
 				4EC1109F176A8C7200FE7679 /* AuthorListViewController.m in Sources */,
-				4EC110A2176A8C8D00FE7679 /* UserListViewController.m in Sources */,
-				4E255187176A96680061993C /* BookEditViewController.m in Sources */,
-				4E25518A176A96760061993C /* AuthorEditViewController.m in Sources */,
-				4E25518D176A96840061993C /* UserEditViewController.m in Sources */,
 				4E697C8F177CCDFC00833E2F /* LoginViewController.m in Sources */,
+				4E9597981782533D00BEEEA2 /* BookDetailViewController.m in Sources */,
+				4EEA2B2A178519800053DBE5 /* Book.m in Sources */,
+				4EEA2B2D17859D170053DBE5 /* Author.m in Sources */,
+				4EEA2B3017859F280053DBE5 /* UserListViewController.m in Sources */,
+				4EEA2B341785A0690053DBE5 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +392,7 @@
 		};
 		4EC11092176A870500FE7679 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA0C7269FC464D9ABF136057 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Library-iOS/Library-iOS-Prefix.pch";
@@ -326,6 +404,7 @@
 		};
 		4EC11093176A870500FE7679 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA0C7269FC464D9ABF136057 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Library-iOS/Library-iOS-Prefix.pch";
